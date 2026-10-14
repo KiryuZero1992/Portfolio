@@ -36,7 +36,27 @@ const experiences = [
   { period: "10.2012—03.2013", title: "Stagiaire technicien de maintenance", company: "Groupe TSF", text: "Diagnostic de pannes sur des dispositifs électriques, gestion des pièces de rechange et organisation des tâches de maintenance.", tags: ["Électricité", "Diagnostic"] },
   { period: "02.2012", title: "Stagiaire technicien de maintenance", company: "Dalkia", text: "Entretien et remplacement d’installations d’éclairage et de sécurité, en veillant à la conformité des systèmes.", tags: ["Maintenance", "Sécurité"] },
 ];
-function ProjectVisual({ project }: { project: Project }) { return <div className={`project-visual ${project.visual}`}><img className="project-visual-image" src={project.image} alt={project.visualLabel} onError={(event) => { event.currentTarget.style.display = "none"; }} /><span className="project-number">{project.number}</span><span className="visual-caption">{project.category.toUpperCase()} <ArrowUpRight size={13} /></span></div>; }
+function ProjectVisual({ project }: { project: Project }) {
+  const [imageFailed, setImageFailed] = useState(false);
+
+  return (
+    <div
+      className={`project-visual ${project.visual}${imageFailed ? " project-visual-fallback" : ""}`}
+    >
+      <img
+        className="project-visual-image"
+        src={project.image}
+        alt={project.visualLabel}
+        onError={() => setImageFailed(true)}
+        onLoad={() => setImageFailed(false)}
+      />
+      <span className="project-number">{project.number}</span>
+      <span className="visual-caption">
+        {project.category.toUpperCase()} <ArrowUpRight size={13} />
+      </span>
+    </div>
+  );
+}
 function ProjectCard({ project }: { project: Project }) { return <article className="project-card"><ProjectVisual project={project} /><div className="project-content"><div className="project-category">{project.category} · {project.year}</div><h3>{project.title}</h3><p>{project.description}</p><div className="tag-list">{project.technologies.map(t => <span key={t}>{t}</span>)}</div><a className="project-link" href={`/projets/${project.slug}`}>Découvrir le projet <ArrowUpRight size={15} /></a></div></article>; }
 function App() {
   const [filter, setFilter] = useState("Tous");
