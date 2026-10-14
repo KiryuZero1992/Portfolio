@@ -63,7 +63,7 @@ function App() {
   const basePath = "/Portfolio";
   const pathname = decodeURI(window.location.pathname);
   const path = (pathname.startsWith(basePath) ? pathname.slice(basePath.length) : pathname).replace(/\/$/, "") || "/";
-  const currentProject = projects.find(p => path === `/projets/${p.slug}`);
+  const currentProject = projects.find(p => path === `/Portfolio/projets/${p.slug}`);
   const Footer = <footer className="site-footer section-wrap"><a className="wordmark" href="/" aria-label="Thierry Lam — accueil">TL <span>★</span></a><p>Conçu avec curiosité et beaucoup de café.</p><a href="/projets">Explorer les projets ↑</a><span className="footer-copy">© {new Date().getFullYear()} Thierry Lam</span></footer>;
   let content;
   if (path === "/Portfolio/projets") {
