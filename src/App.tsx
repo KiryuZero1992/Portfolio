@@ -60,7 +60,8 @@ function ProjectVisual({ project }: { project: Project }) {
 function ProjectCard({ project }: { project: Project }) { return <article className="project-card"><ProjectVisual project={project} /><div className="project-content"><div className="project-category">{project.category} · {project.year}</div><h3>{project.title}</h3><p>{project.description}</p><div className="tag-list">{project.technologies.map(t => <span key={t}>{t}</span>)}</div><a className="project-link" href={`/projets/${project.slug}`}>Découvrir le projet <ArrowUpRight size={15} /></a></div></article>; }
 function App() {
   const [filter, setFilter] = useState("Tous");
-  const path = decodeURI(window.location.pathname).replace(/\/$/, "") || "/";
+  const pathname = decodeURI(window.location.pathname);
+  const path = (pathname.startsWith(basePath) ? pathname.slice(basePath.length) : pathname).replace(/\/$/, "") || "/";
   const currentProject = projects.find(p => path === `/projets/${p.slug}`);
   const Footer = <footer className="site-footer section-wrap"><a className="wordmark" href="/" aria-label="Thierry Lam — accueil">TL <span>★</span></a><p>Conçu avec curiosité et beaucoup de café.</p><a href="/projets">Explorer les projets ↑</a><span className="footer-copy">© {new Date().getFullYear()} Thierry Lam</span></footer>;
   let content;
