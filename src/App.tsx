@@ -390,6 +390,7 @@ function App() {
                   ? "filter-chip active"
                   : "filter-chip"
               }
+              aria-pressed={filter === category}
               onClick={() => setFilter(category)}
             >
               {category}
