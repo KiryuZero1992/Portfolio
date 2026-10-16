@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
   ArrowDownRight,
@@ -17,6 +16,12 @@ import {
   Box,
   Filter,
 } from "lucide-react";
+
+import {
+  MentionsLegales,
+  Confidentialite,
+  Cookies,
+} from "./LegalPages";
 
 type Project = {
   number: string;
@@ -341,6 +346,13 @@ function App() {
 
       <a href="/Portfolio/projets">Explorer les projets ↑</a>
 
+      {/* Liens vers les trois pages légales */}
+      <nav className="footer-legal-links" aria-label="Informations légales">
+        <a href="/Portfolio/mentions-legales">Mentions légales</a>
+        <a href="/Portfolio/confidentialite">Confidentialité</a>
+        <a href="/Portfolio/cookies">Cookies et traceurs</a>
+      </nav>
+
       <span className="footer-copy">
         © {new Date().getFullYear()} Thierry Lam
       </span>
@@ -349,7 +361,14 @@ function App() {
 
   let content;
 
-  if (path === "/projets") {
+  // Pages légales
+  if (path === "/mentions-legales") {
+    content = <MentionsLegales />;
+  } else if (path === "/confidentialite") {
+    content = <Confidentialite />;
+  } else if (path === "/cookies") {
+    content = <Cookies />;
+  } else if (path === "/projets") {
     const categories = [
       "Tous",
       "Web",
