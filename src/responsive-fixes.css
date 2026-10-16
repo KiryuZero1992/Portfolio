@@ -88,7 +88,9 @@ canvas {
     width: 76px;
     transform: scale(.62);
     transform-origin: center;
-    margin-inline: -10px;
+    margin-inline: 0;
+    position: relative;
+    left: -12px;
   }
 
   .site-shell > .arcade-controls .arcade-control-buttons {
