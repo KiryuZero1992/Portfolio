@@ -1,0 +1,402 @@
+/*
+ * Correctifs responsive centralisés.
+ * Ce fichier est chargé après styles.css pour éviter d'empiler de nouveaux
+ * correctifs dans les anciennes media queries.
+ */
+
+.site-shell,
+.site-shell > main,
+.site-shell > .site-footer,
+.site-shell .section-wrap,
+.site-shell .page-main {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.site-shell > main {
+  width: 100%;
+}
+
+.hero-copy,
+.hero-art,
+.project-card,
+.project-content,
+.skill-card,
+.about-copy,
+.detail-hero > *,
+.detail-columns > *,
+.formation-panel > * {
+  min-width: 0;
+}
+
+.project-content,
+.timeline-item,
+.page-intro > p,
+.detail-columns p,
+.contact-panel > p {
+  overflow-wrap: anywhere;
+}
+
+img,
+video,
+canvas {
+  max-width: 100%;
+}
+
+@media (min-width: 621px) and (max-width: 900px) {
+  .section-wrap,
+  .page-main.section-wrap,
+  .hero.section-wrap,
+  .skills-section.section-wrap,
+  .about-section.section-wrap {
+    width: 100%;
+    padding-inline: clamp(20px, 4vw, 34px);
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .hero-copy {
+    width: 100%;
+  }
+
+  .hero-art {
+    width: min(100%, 560px);
+    min-height: clamp(250px, 42vw, 340px);
+    justify-self: center;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .site-shell > .arcade-controls {
+    width: 100%;
+    gap: 16px;
+    padding-inline: 18px;
+  }
+
+  .site-shell > .arcade-controls .arcade-joystick {
+    flex: 0 0 76px;
+    width: 76px;
+    transform: scale(.62);
+    transform-origin: center;
+    margin-inline: 0;
+    position: relative;
+    left: -12px;
+  }
+
+  .site-shell > .arcade-controls .arcade-control-buttons {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(4px, 1vw, 9px);
+  }
+
+  .site-shell > .arcade-controls .arcade-button {
+    width: 100%;
+    min-width: 0;
+    height: 52px;
+    padding: 3px 2px;
+    font-size: clamp(7px, 1.15vw, 10px);
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .detail-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+    gap: 24px;
+  }
+
+  .detail-columns {
+    grid-template-columns: minmax(0, 1.3fr) minmax(220px, .7fr);
+    gap: 28px;
+  }
+}
+
+@media (max-width: 620px) {
+  .section-wrap,
+  .page-main.section-wrap,
+  .hero.section-wrap,
+  .skills-section.section-wrap,
+  .about-section.section-wrap {
+    width: 100%;
+    padding-inline: 16px;
+  }
+
+  .page-main {
+    padding-top: 28px;
+    padding-bottom: 32px;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(25px, 7.2vw, 38px);
+    line-height: 1.4;
+    letter-spacing: -.7px;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-intro,
+  .page-intro > p,
+  .contact-page-panel > p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .hero-actions .button {
+    align-self: flex-start;
+    max-width: 100%;
+  }
+
+  .hero-art {
+    width: 100%;
+    min-height: clamp(220px, 68vw, 290px);
+    border-radius: 12px;
+  }
+
+  .art-label {
+    left: 14px;
+    right: 14px;
+    font-size: 7px;
+    letter-spacing: .6px;
+  }
+
+  .art-index {
+    right: 14px;
+    font-size: 10px;
+  }
+
+  .section-space {
+    padding-top: 64px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .section-heading h2,
+  .about-copy h2,
+  .contact-panel h2 {
+    font-size: clamp(20px, 5.2vw, 28px);
+    line-height: 1.5;
+    letter-spacing: -.4px;
+  }
+
+  .section-heading > p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .project-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .horizontal-carousel {
+    width: 100%;
+    max-width: 100%;
+    gap: 12px;
+  }
+
+  .horizontal-carousel .project-card {
+    flex-basis: min(84vw, 330px);
+  }
+
+  .project-visual {
+    min-height: 200px;
+  }
+
+  .project-content {
+    padding: 20px 18px;
+  }
+
+  .skills-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .skill-card {
+    min-height: 0;
+  }
+
+  .about-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .about-stamp {
+    min-height: 180px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .formation-panel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .formation-carousel .timeline-item,
+  .experience-carousel .timeline-item {
+    flex-basis: min(82vw, 310px);
+  }
+
+  .detail-hero,
+  .detail-columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .detail-hero .project-visual {
+    min-height: 230px;
+  }
+
+  .detail-aside {
+    min-width: 0;
+  }
+
+  .contact-panel {
+    padding: 28px 20px;
+  }
+
+  .contact-panel h2,
+  .contact-page-panel h1 {
+    font-size: clamp(22px, 6vw, 32px);
+    line-height: 1.5;
+    letter-spacing: -.4px;
+  }
+
+  .contact-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .contact-actions .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .site-shell > .arcade-controls {
+    width: 100%;
+    min-height: 0;
+    margin: 16px 0 8px;
+    padding: 16px 12px 18px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  /* Le joystick est décoratif : il ne doit pas comprimer la navigation mobile. */
+  .site-shell > .arcade-controls .arcade-joystick {
+    display: none;
+  }
+
+  .site-shell > .arcade-controls .arcade-control-buttons {
+    display: grid;
+    width: 100%;
+    flex: 0 1 auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding: 4px 0;
+  }
+
+  .site-shell > .arcade-controls .arcade-button {
+    width: 100%;
+    min-width: 0;
+    height: 50px;
+    padding: 5px 3px;
+    font-size: clamp(8px, 2.6vw, 10px);
+    line-height: 1.3;
+    border-width: 2px;
+    border-radius: 9px;
+    overflow-wrap: anywhere;
+  }
+
+  .site-footer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 16px;
+    padding: 20px 16px 24px;
+  }
+
+  .site-footer p {
+    flex: 1 1 180px;
+    min-width: 0;
+  }
+
+  .site-footer > a:not(.wordmark),
+  .site-footer .footer-copy {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 380px) {
+  .section-wrap,
+  .page-main.section-wrap,
+  .hero.section-wrap,
+  .skills-section.section-wrap,
+  .about-section.section-wrap {
+    padding-inline: 14px;
+  }
+
+  .hero h1 {
+    font-size: clamp(23px, 7vw, 27px);
+    letter-spacing: -.4px;
+  }
+
+  .page-intro h1,
+  .contact-page-panel h1,
+  .detail-hero h1 {
+    font-size: clamp(20px, 6vw, 24px);
+    line-height: 1.5;
+    letter-spacing: -.3px;
+  }
+
+  .site-shell > .arcade-controls .arcade-control-buttons {
+    gap: 5px;
+  }
+
+  .site-shell > .arcade-controls .arcade-button {
+    height: 46px;
+    font-size: 8px;
+  }
+
+  .contact-panel {
+    padding-inline: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .horizontal-carousel,
+  .formation-carousel,
+  .experience-carousel {
+    scroll-behavior: auto;
+  }
+}
